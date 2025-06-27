@@ -1,39 +1,46 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #2e2b40; /* приятный тёмно-фиолетовый */
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4ff;
+    color: #333;
+    margin: 20px;
 }
 
-header {
-  background-color: #3c374d;
-  padding: 20px;
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #6a0dad;
+    margin-bottom: 30px;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
 }
 
-nav li {
-  display: inline;
-  margin: 0 15px;
-}
-
-nav a {
-  color: #0ff;
-  text-decoration: none;
+nav ul li {
+    display: inline;
+    margin-right: 15px;
 }
 
 a {
-  color: #0ff;
+    text-decoration: none;
+    color: #0077cc;
+    transition: color 0.3s;
 }
 
-.welcome-message {
-  font-size: 2em; /* на ~5 пунктов больше стандартного */
-  font-weight: bold;
-  color: #ffcc00; /* яркий жёлто-оранжевый */
-  margin-top: 10px;
+a:hover {
+    color: #005599;
+}
+
+.rainbow-text {
+    font-size: 3em;
+    background-image: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
