@@ -2,27 +2,117 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <title>Games by HeLLBoY</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Змейка</title>
+    <style>
+        canvas {
+            background: #000;
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            border: 2px solid #fff;
+        }
+        body {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        a {
+            color: #ffcc00;
+            display: block;
+            margin-top: 20px;
+        }
+        .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1 class="colorful-title">🎮 Games <span>by</span> HeLLBoY</h1>
-        <p class="welcome-text"><strong>Добро пожаловать в мир игр от HeLLBoY! Здесь будут браузерные мини-игры, созданные с душой.</strong></p>
-    </header>
+    <h1>Игра: Змейка</h1>
 
-    <nav>
-        <a href="categories.html">Категории</a> |
-        <a href="feedback.html">Обратная связь</a> |
-        <a href="contacts.html">Контакты</a>
-    </nav>
+    <div class="description">
+        <p><strong>Описание:</strong> Классическая змейка. Цель — съесть как можно больше еды, не врезавшись в стены или в себя.</p>
+        <p><strong>Управление:</strong> Используйте клавиши <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> для управления направлением змейки.</p>
+        <p><strong>Как играть:</strong> После открытия игры змейка начинает движение. Съедайте красные квадраты (еду), чтобы расти и набирать очки.</p>
+    </div>
 
-    <main>
-        <section>
-            <h2>Игры</h2>
-            <p><a href="games/first_adventure/index.html">Запустить игру "Первое приключение"</a></p>
-            <p><a href="games/snake/index.html">Запустить игру "Змейка"</a></p>
-        </section>
-    </main>
+    <canvas id="game" width="800" height="800"></canvas>
+
+    <p><a href="../../categories.html">← Назад к категориям</a></p>
+    <p><a href="../../index.html">← Вернуться на главную</a></p>
+
+    <script>
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+        const box = 40;
+        let snake = [{x: 9 * box, y: 10 * box}];
+        let direction = null;
+        let food = {
+            x: Math.floor(Math.random() * 19 + 1) * box,
+            y: Math.floor(Math.random() * 19 + 1) * box
+        };
+        let score = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+            if (e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+            if (e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+            if (e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+        });
+
+        function draw() {
+            ctx.fillStyle = "#000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = i === 0 ? "lime" : "green";
+                ctx.fillRect(snake[i].x, snake[i].y, box, box);
+            }
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, box, box);
+
+            let headX = snake[0].x;
+            let headY = snake[0].y;
+
+            if (direction === 'LEFT') headX -= box;
+            if (direction === 'RIGHT') headX += box;
+            if (direction === 'UP') headY -= box;
+            if (direction === 'DOWN') headY += box;
+
+            if (headX === food.x && headY === food.y) {
+                score++;
+                food = {
+                    x: Math.floor(Math.random() * 19 + 1) * box,
+                    y: Math.floor(Math.random() * 19 + 1) * box
+                };
+            } else {
+                snake.pop();
+            }
+
+            const newHead = {x: headX, y: headY};
+
+            if (
+                headX < 0 || headY < 0 || headX >= canvas.width || headY >= canvas.height ||
+                snake.some(segment => segment.x === newHead.x && segment.y === newHead.y)
+            ) {
+                clearInterval(game);
+                alert("Игра окончена! Счёт: " + score);
+            }
+
+            snake.unshift(newHead);
+        }
+
+        const game = setInterval(draw, 120);
+    </script>
 </body>
 </html>
