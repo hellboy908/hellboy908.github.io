@@ -6,24 +6,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Games by HeLLBoY</h1>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="categories.html">Категории</a>
-            <a href="feedback.html">Обратная связь</a>
-            <a href="contacts.html">Контакты</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Обратная связь</h2>
-        <p>Если у тебя есть идеи, предложения или ты нашёл баг — напиши мне!</p>
-        <form>
-            <label>Имя:<br><input type="text" name="name"></label><br><br>
-            <label>Email:<br><input type="email" name="email"></label><br><br>
-            <label>Сообщение:<br><textarea rows="5" cols="30"></textarea></label><br><br>
-            <button type="submit">Отправить</button>
-        </form>
-    </main>
+    <h1>Обратная связь ✉️</h1>
+    <form action="mailto:support@example.com" method="post" enctype="text/plain">
+        <label>Ваше имя:<br><input type="text" name="name"></label><br><br>
+        <label>Сообщение:<br><textarea name="message" rows="5"></textarea></label><br><br>
+        <button type="submit">Отправить</button>
+    </form>
+    <p><a href="index.html">← Назад</a></p>
 </body>
 </html>
