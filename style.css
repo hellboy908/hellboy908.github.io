@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2e2b40; /* приятный тёмно-фиолетовый */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background-color: #3c374d;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+a {
+  color: #0ff;
+}
+
+.welcome-message {
+  font-size: 2em; /* на ~5 пунктов больше стандартного */
+  font-weight: bold;
+  color: #ffcc00; /* яркий жёлто-оранжевый */
+  margin-top: 10px;
+}
