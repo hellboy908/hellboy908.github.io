@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Первое приключение</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Первое приключение</h1>
+  <p id="story">Ты очнулся в тёмной пещере. Впереди два пути. Куда пойдёшь?</p>
+
+  <button onclick="choose('left')">Налево</button>
+  <button onclick="choose('right')">Направо</button>
+
+  <script>
+    function choose(path) {
+      const story = document.getElementById('story');
+      if (path === 'left') {
+        story.textContent = 'Ты нашёл сундук с сокровищами! Победа!';
+      } else {
+        story.textContent = 'На тебя напал тролль. Игра окончена!';
+      }
+    }
+  </script>
+
+</body>
+</html>
