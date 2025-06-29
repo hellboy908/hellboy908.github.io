@@ -1,0 +1,36 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.main-bg {
+    background: linear-gradient(135deg, #d1ecf1, #f8d7da);
+    min-height: 100vh;
+}
+header {
+    text-align: center;
+    padding: 20px;
+}
+.title {
+    font-size: 36px;
+}
+.colorful-title {
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.welcome {
+    font-weight: bold;
+    font-size: 24px;
+    color: #5f27cd;
+}
+.nav {
+    margin-top: 10px;
+}
+.nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
