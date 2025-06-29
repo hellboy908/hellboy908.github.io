@@ -5,37 +5,34 @@
   <title>Первое приключение</title>
   <style>
     body {
-      background-color: #111;
-      color: #0f0;
-      font-family: monospace;
+      background-color: #282c34;
+      color: #61dafb;
+      font-family: Arial, sans-serif;
       padding: 20px;
+      text-align: center;
     }
-    button {
-      margin: 10px;
-      padding: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+    button { margin: 10px; padding: 10px 20px; font-size: 18px; cursor: pointer; }
   </style>
 </head>
 <body>
-
   <h1>Первое приключение</h1>
-  <p id="story">Ты очнулся в тёмной пещере. Впереди два пути. Куда пойдёшь?</p>
-
-  <button onclick="choose('left')">Налево</button>
-  <button onclick="choose('right')">Направо</button>
-
+  <div id="story">Ты очнулся в тёмной пещере. Впереди два пути. Куда пойдёшь?</div>
+  <div id="choices">
+    <button onclick="choose('left')">Налево</button>
+    <button onclick="choose('right')">Направо</button>
+  </div>
+  <p><a href="../categories.html">← Назад к категориям</a></p>
   <script>
     function choose(path) {
       const story = document.getElementById('story');
+      const choices = document.getElementById('choices');
       if (path === 'left') {
         story.textContent = 'Ты нашёл сундук с сокровищами! Победа!';
       } else {
         story.textContent = 'На тебя напал тролль. Игра окончена!';
       }
+      choices.innerHTML = '';
     }
   </script>
-
 </body>
 </html>
