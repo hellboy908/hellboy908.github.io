@@ -1,0 +1,48 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #4682B4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.colorful-title {
+    font-size: 3em;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 5s infinite linear;
+}
+
+@keyframes rainbow {
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.welcome-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fefefe;
+    margin-top: 10px;
+}
